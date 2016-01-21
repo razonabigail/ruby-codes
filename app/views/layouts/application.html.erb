@@ -67,12 +67,6 @@
 
 
 
-
-
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class:"alert") %>
-		<% end %>
-
 <script type="text/javascript">
   var vglnk = { key: '3b572b8f2c1e49acbcadd3321b1f6b8b' };
 
@@ -82,6 +76,20 @@
     var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
   }(document, 'script'));
 </script>
+
+
+<script type="text/javascript" src="//s.skimresources.com/js/48502X1206514.skimlinks.js"></script>
+
+
+
+
+
+
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class:"alert") %>
+		<% end %>
+
+
 
 		
 		<%= yield %>		
