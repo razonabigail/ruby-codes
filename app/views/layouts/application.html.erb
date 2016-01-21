@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
+  
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div id="sidebar">
+		
+		<div id="logo">
+			<%= link_to root_path do %>
+				<%= image_tag "diamond4.svg" %>
+			<% end %>
+		</div>
+		
+
+
+
+		<ul>
+			<li class="category">Website</li>
+			<li> <%= link_to "Blog", root_path %> </li>
+			<li> <%= link_to "About", about_path %> </li>
+		</ul>	
+	
+		<ul>
+			<li class="category">Social</li>
+			<li> <a href="https://uk.linkedin.com/in/abigail-razon-53566060">LinkedIn</a> </li>
+			<li> <a href="https://www.facebook.com/razonabigail">Facebook</a> </li>
+			<li> <a href="https://github.com/razonabigail">Github</a> </li>
+
+		</ul>
+
+		<% if !user_signed_in? %>
+			<p class="sign_in"><%= link_to "Log In", new_user_session_path %></p>
+		<% end %>
+		<p class="logo_source">
+			Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
+			<br>
+			Licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+		</p>
+
+	</div>
+
+	<div id="main_content">
+		<div id="header">
+			<% if current_page?(root_path) %>
+				<p>All Posts</p>
+			<% elsif current_page?(about_path) %>
+				<p>About</p>
+			<% else %>
+				<%= link_to "< All Posts", root_path %>
+			<% end %>
+			
+
+			<% if user_signed_in? %>
+
+			<% end %>
+		</div>
+		
+		
+
+
+
+
+
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class:"alert") %>
+		<% end %>
+
+<script type="text/javascript">
+  var vglnk = { key: '3b572b8f2c1e49acbcadd3321b1f6b8b' };
+
+  (function(d, t) {
+    var s = d.createElement(t); s.type = 'text/javascript'; s.async = true;
+    s.src = '//cdn.viglink.com/api/vglnk.js';
+    var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
+  }(document, 'script'));
+</script>
+
+		
+		<%= yield %>		
+	</div>
+
+</body>
+</html>
