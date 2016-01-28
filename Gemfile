@@ -52,9 +52,14 @@ group :development do
   gem 'sqlite3'
 end
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-  gem 'devise', '~> 3.5.2'
+#group :production do
+#  gem 'pg'
+#  gem 'rails_12factor'
+#  gem 'devise', '~> 3.5.2'
+#end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'ci_reporter'
 end
 
