@@ -58,6 +58,7 @@ end
 #  gem 'devise', '~> 3.5.2'
 #end
 
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'ci_reporter'
